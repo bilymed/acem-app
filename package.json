@@ -3,11 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.conf.json",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "start": "node app.js --proxy-config proxy.conf.json",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-prebuild": "echo This runs before Heroku installs your dependencies.",
+    "heroku-postbuild": "npm install --prefix ./client"
   },
   "private": true,
   "dependencies": {
@@ -23,7 +22,9 @@
     "jquery": "^3.5.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.2",
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1001.0",
